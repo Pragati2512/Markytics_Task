@@ -1,0 +1,213 @@
+{% extends 'index.html' %}
+
+
+{% block title %} Create Group {% endblock %}
+
+
+{% block head %}
+    <style>
+    #id_objective , #id_syllabus , #id_text_books, #id_ref_material, #id_prerequisite
+    {
+          display: block;
+          width: 100%;
+          line-height: 40px;
+          border: none;
+          background: #f9f9ff;
+          padding: 0 20px;
+          height: 100px;
+          resize: none;
+          outline-color: #d0e4d0;
+          outline-style: solid;
+          outline-width: 1px;
+            }
+</style>
+{% endblock %}
+
+{% block body %}
+
+            <div class="card">
+                 <div class="card-body">
+                     <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">New Master Incident </h3>
+                      <h4 class="page-title text-truncate text-dark font-weight-medium mb-1"> Initial Reporting </h4>
+
+<br>
+    <form action="" method="post">
+    {% csrf_token %}
+
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2">Location</label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            {{ form.location1 }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2"> Incident Description:</label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+
+                                                            <textarea name="description" class="form-control" rows="3"></textarea>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2">Date and Time of Incident:</label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <input type="date" class="form-control" id="birthday" name="date">
+                                                            <input type="time" class="form-control" id="birthtime" name="time">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2">Incident Location</label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                             <textarea name="location2" class="form-control" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2">Initial Severity:</label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                           <div class="form-control">
+                                                            {{ form.severity }}
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2">Suspected Cause: </label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                             <textarea name="cause" class="form-control" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2">Immediate Actions Taken: </label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                             <textarea name="actions" class="form-control" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2">Sub Incident Types:</label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                   <div class="form-check form-check-inline">
+                                                   <input class="form-check-input" name="type_env" type="checkbox" id="inlineCheckbox1">
+                                                   <label class="form-check-label" for="inlineCheckbox1">Environmental Incident</label>
+                                                   </div>
+                                                   <br>
+                                                   <div class="form-check form-check-inline">
+                                                   <input class="form-check-input" name="type_inju" type="checkbox" id="inlineCheckbox2" >
+                                                   <label class="form-check-label" for="inlineCheckbox2">Injury/Illness</label>
+                                                   </div>
+                                                   <br>
+                                                   <div class="form-check form-check-inline">
+                                                   <input class="form-check-input" name="type_property" type="checkbox" id="inlineCheckbox3" >
+                                                   <label class="form-check-label" for="inlineCheckbox3">Property Damage</label>
+                                                   </div>
+                                                   <br>
+                                                   <div class="form-check form-check-inline">
+                                                   <input class="form-check-input" name="type_vehicle" type="checkbox" id="inlineCheckbox4" >
+                                                   <label class="form-check-label" for="inlineCheckbox4">Vehicle</label>
+                                                   </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label class="col-lg-2"> Reported By: </label>
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                             {{ request.user.username }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-actions">
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-info">Submit</button>
+                                            <button type="submit" class="btn btn-info">Save for later</button>
+                                            <button type="reset" class="btn btn-dark">Cancel</button>
+                                        </div>
+                                    </div>
+               </form>
+            </div>
+            </div>
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block head %}
+    <title>Register</title>
+{% endblock %}
+
+<style>
+.container {
+  width: 500px;
+  clear: both;
+}
+
+.container input {
+  width: 100%;
+  clear: both;
+}
+</style>
+
+{% block body %}
+
+        {% if message %}
+                <div class="messages" style="color: red; margin-left: 60px;">
+                    {{ message }}
+                </div>
+        {% endif %}
+
+<div class="container" style="padding: 30px">
+
+    <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Register !</h3> <br>
+    <form action="" method="post">
+
+    {% csrf_token %}
+    {% for field in form1 %}
+      <p>
+        {{ field.label_tag }} - {{ field }}
+          {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+
+    <br><br>
+    <button type="submit" class="btn btn-info">Register</button>
+    <br><br>
+</form>
+      Already have an account? <a href="{% url 'person:login'%}" target="blank"><strong>Login here</strong></a>!
+
+</div>
+{% endblock %}

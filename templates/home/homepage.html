@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+    {% block head %}
+
+        <title>Home</title>
+
+        <style>
+
+            #cardHod {
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                width: 100%;
+            }
+
+            #cardHod:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+
+            /* Add some padding inside the card container */
+            .hod {
+                padding: 2px 16px;
+            }
+
+        #tags {
+            top: -41px;
+            height: 3px;
+            background-color: #bba6a6;
+        }
+        </style>
+
+
+     {% endblock %}
+
+
+    {% block body %}
+
+          {% if message %}
+                <div class="messages" style="color: green; margin-left: 60px;">
+                    {{ message }}
+                </div>
+           {% endif %}
+     {% if request.user.is_authenticated %}
+
+     <div class="container" style="padding: 30px">
+      Hello Every one! <br>
+      You can report incidents here or save them for later.
+         <br>
+      <a href="{% url 'incident:create-inci'%}" target="blank">
+          <strong> Click here to report a new incident. </strong>
+      </a>
+      <br>
+      <a href="#" target="blank">
+          <strong> View my saved incidents. </strong>
+      </a>
+     </div>
+
+     {% else %}
+
+         <div class="container" style="padding: 30px">
+
+             <div class="messages" style="color:blue; margin-left: 60px;">
+                 You need to log in first. :)
+             </div>
+      <br> <br>
+      Hello Every one! <br>
+      You can report incidents here or save them for later.
+          <br>
+      <a href="{% url 'incident:create-inci'%}" target="blank">
+          <strong>  Click here to report a new incident.  </strong>
+      </a>
+      <br> <br>
+      Once you have made a group-<br>
+      <a href="#" target="blank">
+          <strong> View my saved incidents. </strong>
+      </a>
+     </div>
+      {% endif %}
+    {% endblock %}
